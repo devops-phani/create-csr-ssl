@@ -3,7 +3,7 @@
 Generate private key
 
 ```
-openssl genrsa -out stg-ssl-private.key 2048
+openssl genrsa -out private.key 2048
 ```
 
 Create the `ssl.cnf` file and add the required domain names and information
