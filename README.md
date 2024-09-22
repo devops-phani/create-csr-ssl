@@ -1,12 +1,17 @@
-# create-csr-ssl
+# How to create a multi-domain (SAN - Subject Alternative Name) CSR for SSL certificate using OpenSSL ?
 
-Generate private key
+
+### Prerequisites
+  - openssl
+  - vim/nano (optional)
+
+#### Generate private key
 
 ```
 openssl genrsa -out private.key 2048
 ```
 
-Create the `ssl.cnf` file and add the required domain names and information
+#### Create the `ssl.cnf` file and add the required domain names and information
 
 ```
 [ req ]
@@ -36,13 +41,13 @@ DNS.2 = example2.mydomain.com
 DNS.3 = example3.mydomain.com
 ```
 
-Create CSR
+#### Create CSR
 
 ```
 openssl req -new -sha256 -out my.csr -key private.key -config ssl.cnf
 ```
 
-Verify the csr
+#### Verify the csr
 
 ```
 openssl req -in my.csr -noout -text
